@@ -19,3 +19,4 @@ Here are some resources for more info on Markdown, including what is it, why imp
 * [:octocat: Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#lines) - :star2: 54.1K - :fork_and_knife: 10.4K 
 
 ## Python
+As the saying goes, the master teaches the trade, but apprenticers skill is self-made.With Python's popularity, more and more people want to learn Python, and want to learn it systematically. Here we will share the experience of several free learning materials on :octocat:Github for students to learn.
