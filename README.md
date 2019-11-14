@@ -65,6 +65,24 @@ As the saying goes, the master teaches the trade, but apprenticers skill is self
       <li>It comes with the required hints and the solution, but try not to scroll too far down, or else you’ll stumble upon the answer.</li>
     </ul>
   </details>
+* [:octocat:  full-speed-python](https://github.com/joaoventura/full-speed-python)  - :star2: 3.5K - :fork_and_knife: 541
+	<details>
+		<summary>Essentially a book that covers the fundamentals of Python along with more advanced topics with a significant emphasis on practical learning.</summary>
+		<ul>
+		  <li>After explaining each topic, João tries to solidify the understanding of the concepts by presenting his readers with sufficient exercises. These exercises play a crucial role in bringing Python learners up to speed with Python’s syntax in a short period.</li>
+		  <li>Once you start following this approach, you’ll be able to cover the entirety of this Python book within a month or two, tops. The repo contains the files you will need to build the book for yourself, or you can simply download the book from his repo, the download links are available there.</li>
+		</ul>
+	</details>
+* [:octocat:  Coding-problems](https://github.com/MTrajK/coding-problems)  - :star2: 2.3K - :fork_and_knife: 469
+	<details>
+		<summary>Contains an updated collection of solutions to numerous coding and algorithmic problems that new programmers face while learning data structures and algorithms.</summary>
+		<ul>
+		  <li>Meto has covered the solutions for problems from various topics and has categorized them into arrays, linked lists, dynamic programming, math, and a few more categories.</li>
+		  <li>The author has structured the problems perfectly to make it easier for individuals to analyze the problem and its solution. But of course, that’s not the only thing you’ll find in his repo. You’ll also find some valuable resources like online courses(MOOCs), books, training websites, YouTube channels, and a bunch of other resources that cover Python and solutions to a host of problems developers encounter while working with Python.</li>
+		</ul>
+	</details>
+
+
 
 
 ## Web_Development
