@@ -81,7 +81,14 @@ As the saying goes, the master teaches the trade, but apprenticers skill is self
 		  <li>The author has structured the problems perfectly to make it easier for individuals to analyze the problem and its solution. But of course, that’s not the only thing you’ll find in his repo. You’ll also find some valuable resources like online courses(MOOCs), books, training websites, YouTube channels, and a bunch of other resources that cover Python and solutions to a host of problems developers encounter while working with Python.</li>
 		</ul>
 	</details>
-
+* [:octocat:  The Algorithms](https://github.com/TheAlgorithms/Python)  - :star2: 128K - :fork_and_knife: 33.9K 
+	<details>
+		<summary>The Algorithms/Python repo is one of the most starred and forked Python GitHub repo on and there’s a good reason behind its popularity.</summary>
+		<ul>
+		  <li>Their repo contains algorithms and their implementation for over 35 categories of topics in Python, such as data structures, computer vision, linear algebra, neural networks, sorts, strings, to name a few. Do keep in mind that understanding these algorithms requires at least a beginner-level knowledge of Python, making this repo more suited to intermediate and advanced developers.</li>
+		  <li>Not only Python, but their repo is also home to a similarly vast collection of algorithms for Java, C, C++, JavaScript, Ruby, and a few other programming languages. Regardless of your experience with Python, we recommend starring this repo to have all those algorithms readily available for when you need them. Being open-sourced also gives you the freedom to contribute to the repo in expanding its collection if you wish to.</li>
+		</ul>
+	</details>
 
 
 
@@ -91,8 +98,13 @@ As the saying goes, the master teaches the trade, but apprenticers skill is self
 * [:book:[HTML] Including metadata in the head tag](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML)
 * [:book:[HTML] Semantic tag for structuring a page by function](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Document_and_website_structure)
 * [:book:[HTML] Embedding images into HTML](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Images_in_HTML)
+* [:book:[HTML] Using SVGs](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Adding_vector_graphics_to_the_Web)
+* [:book:[HTML] Overview of Developer Tools](https://developer.chrome.com/docs/devtools/dom/)
 * [:book:[CSS] Overview of CSS Concepts](https://www.taniarascia.com/overview-of-css-concepts/)
 * [:book:[CSS] The Box Model](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model)
 * [:book:[CSS] Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
 * [:book:[REACT] Hello World](https://reactjs.org/docs/hello-world.html)
 * [:book:[REACT] Intro to JSX](https://reactjs.org/docs/introducing-jsx.html)
+* [:book:[REACT] Rendering Elements](https://reactjs.org/docs/rendering-elements.html)
+* [:book:[REACT] Components and Props](https://reactjs.org/docs/components-and-props.html)
+* [:book:[REACT] State and Lifecycle](https://reactjs.org/docs/state-and-lifecycle.html)
