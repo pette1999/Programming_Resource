@@ -8,6 +8,7 @@ An collection of all the amazing programming learning materials and resources on
   - [Python](#Python)
   - [Web Development](#Web_Development)
     - [Helpful Readings](#Helpful_Readings)
+    - [CSS Animation Guide](#CSS_Animation_Guide)
 
 ## Markdown
 This Document is written in Markdown and it's a super important language and tool to use in programming, so I want to start with Markdown. 
@@ -103,8 +104,21 @@ As the saying goes, the master teaches the trade, but apprenticers skill is self
 * [:book:[CSS] Overview of CSS Concepts](https://www.taniarascia.com/overview-of-css-concepts/)
 * [:book:[CSS] The Box Model](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model)
 * [:book:[CSS] Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+* [:book:[CSS] Creating a Complex Layout with CSS Grid](https://www.joshwcomeau.com/css/full-bleed/)
+* [:book:[CSS] CSS Common Layout Cookbook](https://developer.mozilla.org/en-US/docs/Web/CSS/Layout_cookbook)
 * [:book:[REACT] Hello World](https://reactjs.org/docs/hello-world.html)
 * [:book:[REACT] Intro to JSX](https://reactjs.org/docs/introducing-jsx.html)
 * [:book:[REACT] Rendering Elements](https://reactjs.org/docs/rendering-elements.html)
 * [:book:[REACT] Components and Props](https://reactjs.org/docs/components-and-props.html)
 * [:book:[REACT] State and Lifecycle](https://reactjs.org/docs/state-and-lifecycle.html)
+* [:book:[REACT] Introducing Hooks](https://reactjs.org/docs/hooks-intro.html)
+* [:book:[REACT] useState Hook](https://reactjs.org/docs/hooks-state.html)
+* [:book:[REACT] Handling Events](https://reactjs.org/docs/handling-events.html)
+* [:book:[REACT] Conditional Rendering](https://reactjs.org/docs/conditional-rendering.html)
+* [:book:[BACKEND] Row Level Security](https://supabase.io/docs/learn/auth-deep-dive/auth-row-level-security)
+* [:book:[BACKEND] Supabase + Next.js Demo Tutorial](https://supabase.io/docs/guides/with-nextjs)
+
+### CSS_Animation_Guide
+CSS animations are a relatively simple way to add polish and delight to your web apps. Animation is becoming increasingly common as a way to signify that elements are interactive, and they can also be used to create games or interactive experiences. Through this guide we'll learn some of the tools we can use to add animations to our site. While following along with the material, I encourage you to tinker with real code in the animation sandbox. 
+
+**→ Sandbox Code:** [https://codesandbox.io/s/suspicious-matan-342yy?file=/index.html]
