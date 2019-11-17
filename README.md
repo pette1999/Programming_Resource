@@ -90,7 +90,20 @@ As the saying goes, the master teaches the trade, but apprenticers skill is self
 		  <li>Not only Python, but their repo is also home to a similarly vast collection of algorithms for Java, C, C++, JavaScript, Ruby, and a few other programming languages. Regardless of your experience with Python, we recommend starring this repo to have all those algorithms readily available for when you need them. Being open-sourced also gives you the freedom to contribute to the repo in expanding its collection if you wish to.</li>
 		</ul>
 	</details>
-
+* [:octocat:  python_reference](https://github.com/rasbt/python_reference)  - :star2: 3.1K - :fork_and_knife: 847
+	<details>
+		<summary>A collection of various Python topics for intermediate developers.</summary>
+		<ul>
+		  <li>If you have already mastered the basics of Python, then this repo might be suitable for you to help you understand a host of advanced topics. The repo provides Jupyter Notebooks for various topics, such as useful regular expressions, Cython with and without IPython, and many more like it, while giving you the flexibility to edit and run the code as you wish.</li>
+		</ul>
+	</details>
+* [:octocat:  Practical Python](https://github.com/dabeaz-course/practical-python)  - :star2: 7.7K - :fork_and_knife: 4.2K
+	<details>
+		<summary>The material you see here is the heart of an instructor-led Python training course used for corporate training and professional development. It has been in continual development since 2007 and battle tested in real-world classrooms.This includes the completion of approximately 130 hands-on coding exercises.</summary>
+		<ul>
+		  <li>The goal of this course is to cover foundational aspects of Python programming with an emphasis on script writing, data manipulation, and program organization. By the end of this course, students should be able to start writing useful Python programs on their own or be able to understand and modify Python code written by their coworkers.</li>
+		</ul>
+	</details>
 
 
 ## Web_Development
@@ -115,8 +128,12 @@ As the saying goes, the master teaches the trade, but apprenticers skill is self
 * [:book:[REACT] useState Hook](https://reactjs.org/docs/hooks-state.html)
 * [:book:[REACT] Handling Events](https://reactjs.org/docs/handling-events.html)
 * [:book:[REACT] Conditional Rendering](https://reactjs.org/docs/conditional-rendering.html)
+* [:book:[REACT] Lists and Keys](https://reactjs.org/docs/lists-and-keys.html)
+* [:book:[REACT] useEffect Hook](https://reactjs.org/docs/hooks-effect.html)
 * [:book:[BACKEND] Row Level Security](https://supabase.io/docs/learn/auth-deep-dive/auth-row-level-security)
 * [:book:[BACKEND] Supabase + Next.js Demo Tutorial](https://supabase.io/docs/guides/with-nextjs)
+* [:book:[BACKEND] Data Fetching in NextJS](https://nextjs.org/docs/basic-features/data-fetching)
+* [:book:[BACKEND] Async/Await Syntax](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await)
 
 ### CSS_Animation_Guide
 CSS animations are a relatively simple way to add polish and delight to your web apps. Animation is becoming increasingly common as a way to signify that elements are interactive, and they can also be used to create games or interactive experiences. Through this guide we'll learn some of the tools we can use to add animations to our site. While following along with the material, I encourage you to tinker with real code in the animation sandbox. 
