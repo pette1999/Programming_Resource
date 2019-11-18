@@ -180,3 +180,40 @@ Allow you to reposition elements without triggering a re-render. Values are rela
   transform: translate(10px) rotate(20deg) scale(1.5);
 }
 ```
+
+#### Transition 
+Changing something on hover is great, but it's not really animated if it's instantaneous. We want our property to gradually change into the desired new value, like things do in nature, not just teleport there. CSS handles this automatically with the `transition` property. 
+
+***A note about performance**: Transition works best with properties like `transform` and `opacity` and these values should be used whenever possible. Other properties that affect layout like width, padding, etc will cause multiple re-renders of the element and could result in a laggy performance. 
+
+It requires two values: the property (or properties) to transition, and the duration of the transition. 
+
+The transition property added on the hover state controls the beginning transition, or the transition from the default value to the hover value. The transition property on the normal element controls the exit transition, or the transition from the hover state back to the default.
+
+Many times you'll want these two transitions to be different when implementing action driven animation. [This is a great blog post to learn more about motion design](https://tobiasahlin.com/blog/meaningful-motion-w-action-driven-animation/). 
+
+```html
+.box {
+  /* hover -> default */
+  transition: transform 400ms;
+}
+
+.wrapper:hover .box {
+  /* default -> hover */
+  transition: transform 200ms;
+  transform: rotate(20deg);
+}
+```
+
+##### Transition Timing Functions
+The default transition timing function is `ease` . This controls the rate at which the change from one value to the next occurs. You can specify a different timing function in the short-hand for transition.
+
+```html
+.wrapper:hover .box {
+  transition: transform 200ms ease-in;
+  transform: rotate(20deg);
+}
+```
+
+Play around with the other timing functions `linear` `ease-in` `ease-out` and `ease-in-out`
+You can also define your own timing function with `cubic-bezier()` which is often used to create spring-like animations. This is outside of the scope of this class but you can learn more in [this blog post about CSS Bezier Functions](https://css-tricks.com/advanced-css-animation-using-cubic-bezier/). 
