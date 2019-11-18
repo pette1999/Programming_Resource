@@ -139,3 +139,44 @@ As the saying goes, the master teaches the trade, but apprenticers skill is self
 CSS animations are a relatively simple way to add polish and delight to your web apps. Animation is becoming increasingly common as a way to signify that elements are interactive, and they can also be used to create games or interactive experiences. Through this guide we'll learn some of the tools we can use to add animations to our site. While following along with the material, I encourage you to tinker with real code in the animation sandbox. 
 
 **→ Sandbox Code:** [https://codesandbox.io/s/suspicious-matan-342yy?file=/index.html]
+
+#### Hover States
+It's common to add an animation when a user hovers over an interactive element like a button or link. You can do this by using the `:hover` pseudo selector. 
+
+```html
+	.box {
+	  color: blue;
+	}
+
+	.box:hover {
+	  /* Change the box color when mouse hovers over element */
+	  color: red;
+	}
+```
+
+##### Hover Flicker
+If you're animating any `transform` properties (as we'll do below) you can sometimes see what's called a hover "death flicker" because the element transforms out from under the mouse area, stopping the hover animation. You can fix this by wrapping the element you want to transform in a containing element and using that containing element to detect hover, while still applying the styles to the child element. 
+
+```html
+.wrapper:hover .box {
+  /* 
+			Transform box only when wrapper is hovered,
+			so hover area won't rotate out from under the mouse 
+  */
+  transform: rotate(20deg);
+}
+
+/* HTML for this approach */
+<div class="wrapper">
+	<div class="box"></div>
+</div>
+```
+
+#### CSS Transforms
+Allow you to reposition elements without triggering a re-render. Values are relative to the elements original expected position and do not affect the layout or other elements. Most commonly used values are `translate(xValue, yValue)` `scale()` and `rotate()`
+
+```html
+.box { 
+  transform: translate(10px) rotate(20deg) scale(1.5);
+}
+```
