@@ -104,7 +104,10 @@ As the saying goes, the master teaches the trade, but apprenticers skill is self
 		  <li>The goal of this course is to cover foundational aspects of Python programming with an emphasis on script writing, data manipulation, and program organization. By the end of this course, students should be able to start writing useful Python programs on their own or be able to understand and modify Python code written by their coworkers.</li>
 		</ul>
 	</details>
-
+* [:octocat:  Useful Python Snippets](https://github.com/crazyguitar/pysheeet)  - :star2: 7K - :fork_and_knife: 1K
+	<details>
+		<summary>Pysheeet was created with intention of collecting python code snippets for reducing coding hours and making life easier and faster.</summary>
+	</details>
 
 ## Web_Development
 ### Helpful_Readings
@@ -217,3 +220,50 @@ The default transition timing function is `ease` . This controls the rate at whi
 
 Play around with the other timing functions `linear` `ease-in` `ease-out` and `ease-in-out`
 You can also define your own timing function with `cubic-bezier()` which is often used to create spring-like animations. This is outside of the scope of this class but you can learn more in [this blog post about CSS Bezier Functions](https://css-tricks.com/advanced-css-animation-using-cubic-bezier/). 
+
+#### Custom Keyframe Animations
+Sometimes you want a multi-step animation or for something to happen on the page load or with a dynamically added class name in React. For that you can define your own animations with CSS `@keyframes`.
+
+This allows you to define a series of steps, give them a name, and then apply that animation wherever you want in your CSS. The following code creates a custom animation called `fade-in` that starts with an elements opacity at 0 and ends with an element's opacity at 1. 
+
+```html
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+```
+
+Try adding as many steps at different % times and as many other animated properties as you want. 
+
+You can apply this animation to an element with the `animation` property. Again, it requires the name of our keyframe animation and a duration.
+
+```html
+.box {
+  animation: fade-in 100ms;
+}
+```
+
+#### Animation Delay
+You can specify the amount of time you want an animation to wait before running.
+
+```html
+.box {
+  animation: fade-in 100ms;
+  /* Wait 2 seconds before triggering the animation */
+  animation-delay: 2s; 
+}
+```
+
+(You can do the same thing on transitions with `transition-delay` )
+
+#### Animation Fill Modes
+When there's a delay on an animation, most of the time you want the animation to be in it's  starting state until the animation, then remain in its ending state. For some weird asf reason, this is not the default behavior. You can change this by using `animation-fill-mode` which [has a lot of different values](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-fill-mode), but `both` is the most commonly used one that preserves the starting and ending visual state. 
+
+```html
+/* Slap this on whenever you use an animation */
+animation-fill-mode: both;
+```
