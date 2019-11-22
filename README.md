@@ -9,6 +9,7 @@ An collection of all the amazing programming learning materials and resources on
   - [Web Development](#Web_Development)
     - [Helpful Readings](#Helpful_Readings)
     - [CSS Animation Guide](#CSS_Animation_Guide)
+    - [Set up your web development environment](#Set_Up_Your_Web_Development_Environment)
 
 ## Markdown
 This Document is written in Markdown and it's a super important language and tool to use in programming, so I want to start with Markdown. 
@@ -267,3 +268,44 @@ When there's a delay on an animation, most of the time you want the animation to
 /* Slap this on whenever you use an animation */
 animation-fill-mode: both;
 ```
+
+### Set_Up_Your_Web_Development_Environment
+#### Software Pre-Requisites
+1. Download and install [Visual Studio Code](https://code.visualstudio.com/)	(text editor like Atom, with terminal built in)
+2. Create a [GitHub Account](https://github.com/)
+3. Create a [Netlify Account](https://www.netlify.com/)	(this is a free, automated CI/CD deploy and hosting platform - it’s phenomenal)
+4. Create a [CodeSandbox Account](https://codesandbox.io/)	(It is a browser based Javascript/HTML/CSS development environment)
+5. Download and Install [Node.js](https://nodejs.org/en/download/)	(a javascript framework for backend code, comes with package manager `npm` CLI utility)
+
+If creating a **static site**, just create a new directory and an HTML and CSS file. 
+
+```bash
+mkdir PROJECT_NAME
+touch index.html
+touch styles.css
+```
+
+I'd recommend using Josh Comeau's [HTML Starter Template](https://www.joshwcomeau.com/snippets/html/html-skeleton/) and [CSS Reset](https://www.joshwcomeau.com/css/custom-css-reset/#introduction). Just copy and paste from the links into your newly made `index.html` and `styles.css` respectively.
+
+If creating an application, set up your project with NextJS boilerplate. 
+
+```bash
+// with styled-components
+npx create-next-app --example with-styled-components NAME_OF_PROJECT
+
+// with tailwindcss
+npx create-next-app -e with-tailwindcss NAME_OF_PROJECT
+
+// just plain ol' nextjs
+npx create-next-app NAME_OF_PROJECT
+```
+
+Follow documentation on getting set up with [a plain NextJS app](https://nextjs.org/docs/getting-started) and with an [app with TailwindCSS](https://tailwindcss.com/docs/guides/nextjs). 
+
+Then change into your project directory and start your server
+
+```bash
+cd ./NAME_OF_PROJECT
+npm run dev
+```
+
