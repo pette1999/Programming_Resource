@@ -361,3 +361,76 @@ const fetchDataFromSupabase = async () => {
 ```
 
 The above data fetching code could be run on the client, or in `getStaticProps` or `getServerSideProps` depending on the use case. Since we will have row level security (more on this below) and want to limit the data that people can see, we need to run it on the client so it only runs after a user is authenticated (again, more on this below). 
+
+#### Authentication
+If you want to, you can build out your own UI and Authentication logic for your app. If you want to save a lot of time, you can use Supabase's pre-built solution and sacrifice some customization. 
+
+[![Supabase UI](https://ui.supabase.io/og.jpg)](https://ui.supabase.io/components/auth)
+
+To use this, you'll need to install the SupabaseUI library
+
+```javascript
+npm install @supabase/ui
+```
+
+and then import it into your `_app.js` and `index.js`files.
+
+```javascript
+import { Auth } from '@supabase/ui'
+```
+
+The Auth package not only gives you a pre-built UI and functions for logging in and out, but also a User Context Component that allows you to access the current user from anywhere in your application. We will learn more about Context later in this course, for now just wrap your code in `_app.js` like this. 
+
+```javascript
+// _app.js
+import 'tailwindcss/tailwind.css'
+import { supabase } from '../utils/supabaseClient'
+import { Auth } from '@supabase/ui'
+
+function MyApp({ Component, pageProps }) {
+  return (
+		{/* I'm the new part! I send a user object to all components */}
+	  <Auth.UserContextProvider supabaseClient={supabase}>
+	    <Component {...pageProps} />
+	  </Auth.UserContextProvider>
+  )
+}
+
+export default MyApp
+```
+
+Then, you can access the current user from another component like this: 
+
+```javascript
+// gets the user object from Context 
+const { user } = Auth.useUser()
+```
+
+#### Database Setup
+1. Go to the SQL Editor in your Supabase project and run the following query to create your database. 
+
+```sql
+create table public.gratitudes (
+  id uuid references auth.users not null,
+  entry text,
+  date_insert_ts timestamp default now(),
+
+  primary key (id, date_insert_ts) -- each row unique to user and time inserted
+);
+```
+
+2. Then for this application, we want to only allow users to query data that corresponds to their user id. There are a lot of different ways to implement this, but PostgresQL gives us a pretty simple way: row-level security roles. This allows us to write some SQL roles that will automatically filter out data that does not include the user's ID. 
+
+```sql
+alter table public.gratitudes enable row level security;
+
+create policy "Gratitudes are viewable by users who created them."
+  on gratitudes for select
+  using ( auth.uid() = id );
+
+create policy "Users can insert their own gratitudes."
+  on gratitudes for insert
+  with check ( auth.uid() = id );
+```
+
+The actual functionality behind SQL policies is outside of the scope of this course, but you can read more in the [Supabase documentation on row level security](https://supabase.com/docs/learn/auth-deep-dive/auth-row-level-security).
