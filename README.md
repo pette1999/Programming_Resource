@@ -10,6 +10,7 @@ An collection of all the amazing programming learning materials and resources on
     - [Helpful Readings](#Helpful_Readings)
     - [CSS Animation Guide](#CSS_Animation_Guide)
     - [Set up your web development environment](#Set_Up_Your_Web_Development_Environment)
+    - [Set Up Your Supabase Backend](#Set_Up_Your_Supabase_Backend)
 
 ## Markdown
 This Document is written in Markdown and it's a super important language and tool to use in programming, so I want to start with Markdown. 
@@ -309,3 +310,54 @@ cd ./NAME_OF_PROJECT
 npm run dev
 ```
 
+### Set_Up_Your_Supabase_Backend
+To add a backend to our application, we will be using [Supabase](https://supabase.com/). This is an open source alternative to Google's firebase that provides a lot of backend features out of the box for free. In this application, we will be using their database and authentication. 
+
+Take a deep breath, this might seem overwhelming at first. It will all be ok! 🙏
+
+#### Environment Variables
+You'll need to store two environment variables for reference in your project, your supabase url and your anon key. Both of these are designed to be public, so it's ok that they'll appear in your client. Adding row level security to our table (more on this below) will prevent people from  accessing restricted data.
+
+1. Find the url & keys inside your Supabase Settings > API
+2. Create a `.env.local` file in the root of your project directory and add these two variables. 
+```javascript
+NEXT_PUBLIC_SUPABASE_URL=https://SOME_URL.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=SOME_STRING_OF_CHARS
+```
+3. Go to your Netlify project > Deployment > Deploy Settings and add the above variables as deployment environment variables as well. Make sure the names match. 
+
+Now both your local and production environments should be able to access these variables and use them to make requests to Supabase.
+
+#### Supabase Client Object
+Our front-end needs to authenticate to Supabase to make any API calls. To do this, we will create a utility supabase client object that we can then import into any components that need to make API calls. 
+We'll create a new directory called `utils` and put a new` supabaseClient.js` file in it to store our client object.
+
+```javascript
+// utils/supabaseClient.js
+import { createClient } from '@supabase/supabase-js'
+
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+
+export const supabase = createClient(supabaseUrl, supabaseAnonKey)
+```
+
+This takes the environment variables we set up earlier and injects them into our client code so that we can use the object `subabase` to make API requests to our backend. You can now import it into any component that needs it. 
+
+```javascript
+import { supabase } from '../utils/supabaseClient'
+
+// fetch data function example
+const fetchDataFromSupabase = async () => {
+    let { data, error } = await supabase
+        .from('TABLE_NAME')
+        .select('COLUMN, ANOTHER_COLUMN')
+    if (error) setError(error.message)
+    else {
+        setData(data)
+        setLoading(false)
+    }
+  }
+```
+
+The above data fetching code could be run on the client, or in `getStaticProps` or `getServerSideProps` depending on the use case. Since we will have row level security (more on this below) and want to limit the data that people can see, we need to run it on the client so it only runs after a user is authenticated (again, more on this below). 
