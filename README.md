@@ -11,6 +11,7 @@ An collection of all the amazing programming learning materials and resources on
     - [CSS Animation Guide](#CSS_Animation_Guide)
     - [Set up your web development environment](#Set_Up_Your_Web_Development_Environment)
     - [Set Up Your Supabase Backend](#Set_Up_Your_Supabase_Backend)
+    - [Deploying Your Website](#Deploying_Your_Website)
 
 ## Markdown
 This Document is written in Markdown and it's a super important language and tool to use in programming, so I want to start with Markdown. 
@@ -434,3 +435,57 @@ create policy "Users can insert their own gratitudes."
 ```
 
 The actual functionality behind SQL policies is outside of the scope of this course, but you can read more in the [Supabase documentation on row level security](https://supabase.com/docs/learn/auth-deep-dive/auth-row-level-security).
+
+### Deploying_Your_Website
+We'll be deploying our sites on Netlify, a wonderful tool that offers free hosting, continuous integration and continuous deployment, and a whole host of other perks. 
+
+Since your apps are built with NextJS, Netlify will **automatically** detect this when you add a new project and should set up most of the integrations for you via the [next-on-netlify essential build plug-in.](https://github.com/netlify/netlify-plugin-nextjs/tree/v3#readme) You shouldn't need to do anything to get this set up with a new site. 
+
+You can read more about the detailed features of NextJS on Netlify in the [official documentation](https://docs.netlify.com/configure-builds/common-configurations/next-js/?_ga=2.40143586.1188718911.1639016182-259392666.1629061964).
+
+However, you will need to set up ENV variables for all of your API keys if you're using Supabase or a third party API. Follow the instructions below. 
+
+1. Upload your entire root directory to GitHub. This includes everything created automatically when you ran `create-next-app` to start developing. It should've created a `.gitignore` file for you, so you don't need to change anything there. The `node_modules` and `.next` directories should be ignored and not uploaded. 
+2. Log in to your Netlify account and click the "New Site from Git" button.
+![](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/bfbad9b9-46e9-47bb-96b4-b5e88252a6ed/Screen_Shot_2021-12-08_at_7.06.50_PM.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220119%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220119T065030Z&X-Amz-Expires=86400&X-Amz-Signature=dad342ca992e200182fa6c44f54225233b993fd80f65af5310ecc969c79118ef&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Screen%2520Shot%25202021-12-08%2520at%25207.06.50%2520PM.png%22&x-id=GetObject)
+Find your repository and step through the connection process. This will attempt to create an initial deploy from your repository. **Use the default settings** created by Netlify after you select your repository, you should only change something if you've deliberately done something different. 
+3. Your first build will probably fail, because you haven't added your ENV variables to a production environment. Click on your added site and navigate to `Site settings` > `Build & deploy` > `Enivronment`
+Add any environment variables you use in your project, and make sure the names are consistent with what you reference in your code. 
+    *(if you're not using any variables, you can skip this step)*
+![](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/434c5e9a-d8e9-4329-9753-abcc065547a1/Screen_Shot_2021-12-08_at_7.11.13_PM.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220119%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220119T065249Z&X-Amz-Expires=86400&X-Amz-Signature=12994064ec17cbee6ed7cb3a44ccd1c989fb02dcc8e48959ac6c5b0024f695ce&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Screen%2520Shot%25202021-12-08%2520at%25207.11.13%2520PM.png%22&x-id=GetObject)
+4. If using Supabase Auth, go to your Supabase Console and navigate to` Settings` > `Auth settings` > `General` > `Site URL` and add whatever your URL through Netlify is. This will allow links emailed out to users to redirect to the appropriate domain name for your site.
+5. Navigate to `Deploys` and click `Trigger deploy` > `Deploy site` to force a re-deploy, and you should be good to go! 🤞
+![](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/980c1762-3e36-41f4-bdf2-81b1f586ff8e/Screen_Shot_2021-12-09_at_6.17.11_PM.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220119%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220119T065407Z&X-Amz-Expires=86400&X-Amz-Signature=fc93919d2b23b763487430780685681ea5c4906ee7fad60866c4f8a19e5c7295&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Screen%2520Shot%25202021-12-09%2520at%25206.17.11%2520PM.png%22&x-id=GetObject)
+6. Verify that your site is working correctly by clicking on the netlify link in your site details. If something goes wrong, it has probably happened to other people, so don't fret. Check the deploy log, search for your errors, and see how other people solved it. I'll add to the troubleshooting section below as other students run into errors, so check that first!
+7. If you want to get ✨ fancy ✨, Netlify provides a bunch of additional useful features out of the box like [automatic form submission collection](https://www.netlify.com/blog/2017/07/20/how-to-integrate-netlifys-form-handling-in-a-react-app/), [asset optimization](https://docs.netlify.com/site-deploys/post-processing/), [build plug-ins](https://www.netlify.com/products/build/plugins/), and even things like [split testing](https://docs.netlify.com/site-deploys/split-testing/)!
+
+#### Troubleshooting
+<details>
+		<summary>My site deploys, but I get a 404 error when trying to route to the home page.</summary>
+		<ul>
+		  <li>This typically happens because you don't have an `index.js` file in the `pages` directory of your app. (or if it is just a static site, no `index.html` page) </li>
+		  <li>If you do have an index.js , make sure something is rendered in all cases. </li>
+		  <li>If you're using the next/link package, make sure you have a lowercase "link" in your import statement.</li>
+		</ul>
+	</details>
+
+<details>
+		<summary>My site deploys, but my login doesn't work or gives a 404 error.</summary>
+		<ul>
+		  <li>You probably did not complete step #4. Make sure your deployed netlify domain is listed as the site URL and everything is spelled correctly.</li>
+		</ul>
+	</details>
+
+<details>
+		<summary>"Waiting for other deploys from your team to complete" in the deploy log</summary>
+		<ul>
+		  <li>This just means you have another deploy that's currently running. Once that deploy finishes, it will attempt to run your most recent deploy. You can check the status of deploys by navigating to Deploys and looking at the list of deploys + their status code. </li>
+		</ul>
+	</details>
+
+<details>
+		<summary>My build has been running for basically 10,000 hours</summary>
+		<ul>
+		  <li>Make sure you are using the default settings created by Netlify, as mentioned in step 2. Your build command should be next build (not npm run dev , that is the command to start the local development server, not the build command, so it will run continuously) </li>
+		</ul>
+	</details>
